@@ -86,11 +86,11 @@
 				<a href="index.html">
 					<img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
 					<img
-						src="{{ url('gambar', ['user.png']) }}"
+						src="{{ url('gambar', ['logo.png']) }}"
 						width="40px"
 						class="light-logo mr-2"
 					/>
-          asdad
+          				SI UJIAN
 				</a>
 				<div class="close-sidebar" data-toggle="left-sidebar-close">
 					<i class="ion-close-round"></i>
