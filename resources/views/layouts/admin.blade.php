@@ -16,17 +16,17 @@
 <link
     rel="apple-touch-icon"
     sizes="180x180"
-    href="vendors/images/apple-touch-icon.png"/>
+    href="{{ url('gambar', ['logo.png']) }}"/>
 <link
     rel="icon"
     type="image/png"
     sizes="32x32"
-    href="vendors/images/favicon-32x32.png"/>
+    href="{{ url('gambar', ['logo.png']) }}"/>
 <link
     rel="icon"
     type="image/png"
     sizes="16x16"
-    href="vendors/images/favicon-16x16.png"/>
+    href="{{ url('gambar', ['logo.png']) }}"/>
 
 <!-- Mobile Specific Metas -->
 <meta
