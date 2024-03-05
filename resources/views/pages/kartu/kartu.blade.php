@@ -31,7 +31,7 @@
                             @endforeach
                         <select>
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary px-3">
@@ -47,7 +47,7 @@
         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#cetak">
             <i class="fa fa-print">Cetak Kartu</i>
         </button>
-        
+
 
     </div>
     <div class="col-md-8">
@@ -61,7 +61,7 @@
                             <option value='{{ $item->idjurusan }}' @if ($jurusan == $item->idjurusan)
                                 selected
                             @endif >{{ $item->jurusan }}</option>
-                                
+
                             @endforeach
                         <select>
                     </div>
@@ -74,7 +74,7 @@
                             <option value='{{ $item->idkelas }}' @if ($kelas == $item->idkelas)
                                 selected
                             @endif >{{ $item->kelas }}</option>
-                                
+
                             @endforeach
                         <select>
                     </div>
@@ -93,7 +93,7 @@
         </form>
     </div>
 </div>
-    
+
 
 @endsection
 
@@ -106,6 +106,7 @@
                 <th nowrap>Nama</th>
                 <th nowrap>Rombel</th>
                 <th nowrap>Kelola</th>
+                <th>Lihat Gambar</th>
             </tr>
 
         </thead>
@@ -116,6 +117,7 @@
                     <td>{{ $loop->iteration + $siswa->firstItem() - 1 }}</td>
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->kelas->kelas }} {{ $item->jurusan->jurusan }}</td>
+
                     <td>
                         @php
                             $urutan = App\Models\urutanM::where("idujian", $idujian)->where("nisn", sprintf("%010s",$item->nisn))->first();
@@ -135,31 +137,34 @@
                                             <option value='{{ $ruang->idruangan }}' @if ($idruangan == $ruang->idruangan)
                                                 selected
                                             @endif>{{ $ruang->namaruangan }}</option>
-                                            
+
                                         @endforeach
                                     <select>
                                 </div>
-    
+
                                 <button type="button" id="buttonprocess{{ $item->idsiswa }}" class="badge badge-btn border-0 @if (empty($urutan))
                                     badge-danger
                                 @else
                                     badge-success
                                 @endif " onclick="kirimpost{{ $item->idsiswa }}({{ $idujian }})">Proses</button>
-    
-                                
+
+
                                 <button @if (empty($urutan))
                                     hidden
                                 @endif type="button" id="buttonhapus{{ $item->idsiswa }}" class="badge badge-btn badge-danger border-0" onclick="hapusurutan{{ $item->idsiswa }}({{ $idujian }})">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                   
+
                             </div>
                         </form>
+                    </td>
+                    <td>
+                        <a href="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{$item->gambar}}" target="_blank" class="badge badge-info badge-btn py-1 border-0">Lihat Gambar</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
-        
+
     </table>
 
     {{ $siswa->links("vendor.pagination.bootstrap-4") }}
@@ -278,6 +283,6 @@
     }
 
 </script>
-    
+
 @endforeach
 @endsection

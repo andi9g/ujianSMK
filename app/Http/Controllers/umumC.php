@@ -21,6 +21,7 @@ class umumC extends Controller
         $jamakhir = soalM::where("tanggal", "like", "$sekarang%")->orderBy('tanggal', "desc")->first();
 
         $soal = soalM::where("tanggal", "<=", "$tanggal")
+        ->where("tanggal", "like", "$sekarang%")
         ->get();
 
         return view('pages.umum.umum', [
