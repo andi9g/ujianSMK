@@ -40,8 +40,8 @@ class soalC extends Controller
         $keyword = empty($request->keyword)?'':$request->keyword;
 
         $soal = soalM::where("mapel", "like", "%$keyword%")
-        ->orderBy("mapel", "asc")
         ->orderBy("tanggal", "asc")
+        ->orderBy("mapel", "asc")
         ->paginate(20);
 
         $soal->appends($request->only(["limit", "keyword"]));
