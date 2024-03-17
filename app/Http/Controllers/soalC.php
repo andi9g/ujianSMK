@@ -17,7 +17,7 @@ class soalC extends Controller
      */
     public function index(Request $request)
     {
-        $ujian = ujianM::orderBy("tanggal", "asc")->get();
+        $ujian = ujianM::get();
 
         return view("pages.soal.soal", [
             "ujian" => $ujian,
@@ -41,6 +41,7 @@ class soalC extends Controller
 
         $soal = soalM::where("mapel", "like", "%$keyword%")
         ->orderBy("mapel", "asc")
+        ->orderBy("tanggal", "asc")
         ->paginate(20);
 
         $soal->appends($request->only(["limit", "keyword"]));
