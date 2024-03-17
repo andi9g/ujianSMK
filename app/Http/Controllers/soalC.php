@@ -17,11 +17,11 @@ class soalC extends Controller
      */
     public function index(Request $request)
     {
-        $ujian = ujianM::get();
-        
+        $ujian = ujianM::orderBy("tanggal", "asc")->get();
+
         return view("pages.soal.soal", [
             "ujian" => $ujian,
-            
+
         ]);
     }
 
@@ -34,8 +34,8 @@ class soalC extends Controller
     {
         $kelas = kelasM::get();
         $jurusan = jurusanM::get();
-        
-        
+
+
 
         $keyword = empty($request->keyword)?'':$request->keyword;
 
@@ -66,7 +66,7 @@ class soalC extends Controller
             $data = $request->all();
             $tanggal = $request->tanggal." ".$request->jam.":00";
             $data['tanggal'] = date("Y-m-d H:i:s", strtotime($tanggal));
-            
+
             $jurusan = "";
             $i = 1;
             foreach ($request->jurusan as $j) {

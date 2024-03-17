@@ -22,7 +22,7 @@
                         <label for="mapel">Mata Pelajaran</label>
                         <input id="mapel" required class="form-control" type="text" name="mapel" placeholder="masukan nama pelajaran">
                     </div>
-    
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-7">
@@ -32,9 +32,9 @@
                                 <label for="jam">JAM</label>
                                 <input id="jam" class="form-control" type="time" name="jam"></div>
                         </div>
-                        
+
                     </div>
-    
+
                     <div class="form-group">
                         <label>Jurusan</label>
                         <select
@@ -52,21 +52,21 @@
                         @endforeach
                         </select>
                     </div>
-    
+
                     <div class="form-group">
                         <label for="links">Link Soal</label>
                         <input id="links" required class="form-control" type="text" name="links">
                     </div>
-    
+
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input id="password" required class="form-control" type="text" name="password">
                     </div>
-    
-    
-                    
-    
-    
+
+
+
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Tambah</button>
@@ -160,7 +160,7 @@
                                             <label for="mapel">Mata Pelajaran</label>
                                             <input id="mapel" required class="form-control" value="{{ $item->mapel }}" type="text" name="mapel" placeholder="masukan nama pelajaran">
                                         </div>
-                        
+
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-7">
@@ -170,13 +170,13 @@
                                                     <label for="jam">JAM</label>
                                                     <input id="jam" class="form-control" type="time" value="{{ date('H:i', strtotime($item->tanggal)) }}" name="jam"></div>
                                             </div>
-                                            
+
                                         </div>
-                        
+
                                         <div class="form-group">
                                             @php
                                                 $ex = explode(",", $item->jurusan);
-                                                
+
                                             @endphp
                                             <label>Jurusan</label>
                                             <select
@@ -193,28 +193,28 @@
                                                 <option value="{{ $k->kelas." ".$j->jurusan }}" @if ($x == $k->kelas." ".$j->jurusan)
                                                     selected
                                                 @endif>{{ $k->kelas." ".$j->jurusan }}</option>
-                                                    
+
                                                 @endforeach
-                                                        
+
                                                 @endforeach
                                             @endforeach
                                             </select>
                                         </div>
-                        
+
                                         <div class="form-group">
                                             <label for="links">Link Soal</label>
                                             <input id="links" required value="{{ $item->links }}" class="form-control" type="text" name="links">
                                         </div>
-                        
+
                                         <div class="form-group">
                                             <label for="password">Password</label>
                                             <input id="password" required value="{{ $item->password }}" class="form-control" type="text" name="password">
                                         </div>
-                        
-                        
-                                        
-                        
-                        
+
+
+
+
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-success">Tambah</button>
@@ -232,7 +232,7 @@
 
 
 @section('foot')
-    
+
 <script>
     $('.custom-select2').select2({
         theme: 'bootstrap4',
