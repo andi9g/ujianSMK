@@ -1,9 +1,12 @@
 @extends('layouts.umum')
-
+@php
+    $ket["minutes"] = "Menit";
+    $ket["hours"] = "Jam";
+@endphp
 @section('head')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-    
+
 </style>
 @endsection
 
@@ -16,24 +19,24 @@
             </b>
         </p>
         <small class="m-0 p-0">
-            Ujian pada 
+            Ujian pada
             @if (!empty($jamawal) || !empty($jamakhir))
-            <b>{{ \Carbon\Carbon::parse(date("Y-m-d"))->isoFormat("dddd, DD MMMM Y") }}</b> 
+            <b>{{ \Carbon\Carbon::parse(date("Y-m-d"))->isoFormat("dddd, DD MMMM Y") }}</b>
             diselenggarakan pada pukul
                 <font class="text-success text-bold"><b>
-                {{ date("H:i", strtotime($jamawal->tanggal)) }}    
+                {{ date("H:i", strtotime($jamawal->tanggal)) }}
                 s/d Selesai
-                </b></font>   
-            
+                </b></font>
+
             @else
                 <b>{{ \Carbon\Carbon::parse(date("Y-m-d"))->isoFormat("dddd, DD MMMM Y") }}</b>
-                <font class="text-danger text-bold"><b>TIDAK ADA</b></font>   
+                <font class="text-danger text-bold"><b>TIDAK ADA</b></font>
             @endif
             . Lakukan <b>Refresh Halaman</b> jika belum ada link ujian.
         </small> <br>
         <small class="text-danger">
             <i>
-                Link ujian akan di tutup dalam waktu 1 jam pada website
+                Link ujian akan di tutup dalam waktu {{ $durasi->nilai }} {{ $ket["$durasi->durasi"] }} pada website
             </i>
         </small>
     </div>
@@ -42,9 +45,9 @@
 
 
 @foreach ($soal as $item)
-    
+
     @php
-        $tanggal = strtotime(date("Y-m-d H:i:s", strtotime("+1 hours", strtotime($item->tanggal))));
+        $tanggal = strtotime(date("Y-m-d H:i:s", strtotime("+$durasi->nilai "."$durasi->durasi", strtotime($item->tanggal))));
         $sekarang = strtotime(date("Y-m-d H:i:s"));
         // dd($tanggal);
 
@@ -54,11 +57,11 @@
    <div class="card mt-3">
         <div class="card-body ">
             <h4 class=" m-0 p-0">{{ $item->mapel }}
-            </h4> 
+            </h4>
             <p class="card-text text-success m-0 p-0">
                 <b>
                     TELAH DIBUKA
-                    
+
                 </b>
             </p>
             <p class="card-text m-0 p-0">
@@ -96,7 +99,7 @@
                                 });
                             }
                         </script>
-                    
+
                 </div>
                 <div class="col-6">
                     <a href="{{ $item->links }}" target="_blank" class="btn btn-block btn-info m-0 rounded-lg btnku">
@@ -104,7 +107,7 @@
                     </a>
                 </div>
 
-                
+
             </div>
         </div>
     </div>
@@ -113,7 +116,7 @@
    <div class="card mt-3" style="background: rgba(228, 228, 228, 0.866)">
     <div class="card-body">
         <h5 class="card-title m-0 p-0">{{ $item->mapel }}
-        </h5> 
+        </h5>
         <p class="card-text text-danger m-0 p-0">
             <b>TELAH DITUTUP</b>
         </p>
@@ -127,7 +130,7 @@
         </p>
     </div>
 </div>
-       
+
    @endif
 
 

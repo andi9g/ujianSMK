@@ -2,35 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\soalM;
 use App\Models\durasiM;
 use Illuminate\Http\Request;
 
-class umumC extends Controller
+class pengaturanC extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $tanggal = date("Y-m-d H:i:s");
-        $sekarang = date("Y-m-d");
-
         $durasi = durasiM::first();
-
-        $jamawal = soalM::where("tanggal", "like", "$sekarang%")->orderBy('tanggal', "asc")->first();
-        $jamakhir = soalM::where("tanggal", "like", "$sekarang%")->orderBy('tanggal', "desc")->first();
-
-        $soal = soalM::where("tanggal", "<=", "$tanggal")
-        ->where("tanggal", "like", "$sekarang%")
-        ->get();
-
-        return view('pages.umum.umum', [
-            "soal" => $soal,
-            "jamawal" => $jamawal,
-            "jamakhir" => $jamakhir,
+        return view("pages.pengaturan.durasi", [
             "durasi" => $durasi,
         ]);
     }
@@ -59,10 +44,10 @@ class umumC extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\soalM  $soalM
+     * @param  \App\Models\durasiM  $durasiM
      * @return \Illuminate\Http\Response
      */
-    public function show(soalM $soalM)
+    public function show(durasiM $durasiM)
     {
         //
     }
@@ -70,10 +55,10 @@ class umumC extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\soalM  $soalM
+     * @param  \App\Models\durasiM  $durasiM
      * @return \Illuminate\Http\Response
      */
-    public function edit(soalM $soalM)
+    public function edit(durasiM $durasiM)
     {
         //
     }
@@ -82,21 +67,32 @@ class umumC extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\soalM  $soalM
+     * @param  \App\Models\durasiM  $durasiM
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, soalM $soalM)
+    public function update(Request $request, durasiM $durasiM, $iddurasi)
     {
-        //
+        $request->validate([
+            'nilai'=>'required|numeric',
+            'durasi'=>'required',
+        ]);
+
+        try{
+            $data = $request->all();
+            durasiM::where("iddurasi", $iddurasi)->first()->update($data);
+            return redirect()->back()->with('success', 'Success');
+        }catch(\Throwable $th){
+            return redirect()->back()->with('toast_error', 'Terjadi kesalahan');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\soalM  $soalM
+     * @param  \App\Models\durasiM  $durasiM
      * @return \Illuminate\Http\Response
      */
-    public function destroy(soalM $soalM)
+    public function destroy(durasiM $durasiM)
     {
         //
     }

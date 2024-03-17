@@ -45,10 +45,10 @@
 			</div>
 
 			<div class="header-right">
-				
-				
+
+
 				<div class="user-info-dropdown">
-					
+
           <div class="dropdown">
 						<a
 							class="dropdown-toggle"
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -99,8 +99,8 @@
 			<div class="menu-block customscroll">
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
-						
-						
+
+
 						<li>
 							<a href="{{ url('home', []) }}" class="dropdown-toggle no-arrow @yield('activeHome')">
 								<span class="micon fa fa-home"></span
@@ -118,6 +118,13 @@
 							<a href="{{ url('kartu', []) }}" class="dropdown-toggle no-arrow @yield('kartuActive')">
 								<span class="micon fa fa-id-card"></span
 								><span class="mtext">Kartu Ujian</span>
+							</a>
+						</li>
+                        <li class="">
+							<hr class="bg-light">
+							<a href="{{ url('pengaturan', []) }}" class="dropdown-toggle no-arrow @yield('pengaturanActive')">
+								<span class="micon fa fa-wrench"></span
+								><span class="mtext">Pengaturan</span>
 							</a>
 						</li>
 					</ul>
@@ -149,13 +156,15 @@
 
             </nav>
           </div>
-          
-          
+
+
 
         </div>
 
 
       </div>
+
+      @yield('contentTOP')
 
       <div class="pd-20 card-box mb-30">
         <div class="clearfix mb-20">
@@ -165,9 +174,9 @@
 			@yield('content')
 
       </div>
-      
+
 		</div>
-		
+
 		@include('layouts.footer')
     @include('sweetalert::alert')
 	@yield('foot')
