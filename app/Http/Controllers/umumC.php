@@ -25,6 +25,7 @@ class umumC extends Controller
 
         $soal = soalM::where("tanggal", "<=", "$tanggal")
         ->where("tanggal", "like", "$sekarang%")
+        ->orderBy("tanggal", "desc")
         ->get();
 
         return view('pages.umum.umum', [
