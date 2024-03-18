@@ -15,7 +15,7 @@ class umumC extends Controller
      */
     public function index(Request $request)
     {
-        $tanggal = date("Y-m-d H:i:s");
+        $tanggal = date("Y-m-d H:i:s", strtotime("-4 minutes", strtotime(date("Y-m-d H:i:s"))));
         $sekarang = date("Y-m-d");
 
         $durasi = durasiM::first();
