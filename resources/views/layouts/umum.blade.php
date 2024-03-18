@@ -79,7 +79,7 @@
     	</nav>
 
 
-		<div class="container">
+		<div class="container pb-3 mb-4">
 
 			@yield('content')
 		</div>
