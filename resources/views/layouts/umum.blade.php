@@ -35,7 +35,7 @@
 
 	</head>
 	<body class="bg-sm body-sm">
-		<a href="{{ url('/', []) }}" class="btn btn-secondary" style="position: fixed; bottom: 20px; right: 20px;">
+		<a href="{{ url('/', []) }}" class="btn btn-secondary" style="position: fixed; bottom: 20px; right: 20px;z-index: 99999 !important;">
 			<i class="fa fa-refresh"></i> Refresh Halaman
 		</a>
 
@@ -80,10 +80,10 @@
 
 
 		<div class="container">
-			
+
 			@yield('content')
 		</div>
-		
+
 		@include('layouts.footer')
     @include('sweetalert::alert')
 	@yield('foot')
