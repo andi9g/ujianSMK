@@ -154,8 +154,8 @@
                 <img src="{{ url('gambar', ["noimage.png"]) }}" style="max-height: 230px" alt="">
 
                 @else
-                <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ $item->siswa->gambar }}" style="max-height: 230px" alt="">
-                {{ $item->siswa->gambar }}
+                <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ str_replace(" ", "%20", $item->siswa->gambar) }}" style="max-height: 230px" alt="">
+
                 @endif
             </td>
             <td valign="top" style="padding: auto 25px;font-size: 8pt" >
