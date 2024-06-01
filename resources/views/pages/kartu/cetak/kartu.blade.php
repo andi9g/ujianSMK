@@ -19,10 +19,10 @@
             margin-top: 200px;
         }
         body   {
-            
+
         }
         .kartu {
-            
+
             border: 1px solid rgb(204, 204, 204);
             width: <?php echo $w;?>px;
             height: <?php echo $h;?>px;
@@ -79,7 +79,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         /* @media print{
             @page {size: landscape}
             @page { margin: 0px; }
@@ -150,10 +150,12 @@
         <table width="100%">
             <td width="25%" align="right" valign="justify">
                 @if (empty($item->siswa->gambar))
+
                 <img src="{{ url('gambar', ["noimage.png"]) }}" style="max-height: 230px" alt="">
 
                 @else
                 <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ $item->siswa->gambar }}" style="max-height: 230px" alt="">
+                {{ $item->siswa->gambar }}
                 @endif
             </td>
             <td valign="top" style="padding: auto 25px;font-size: 8pt" >
