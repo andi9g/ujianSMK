@@ -17,7 +17,7 @@ class soalC extends Controller
      */
     public function index(Request $request)
     {
-        $ujian = ujianM::get();
+        $ujian = ujianM::orderBy("idujian", "desc")->get();
 
         return view("pages.soal.soal", [
             "ujian" => $ujian,
