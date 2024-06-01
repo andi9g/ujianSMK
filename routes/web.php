@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post("kartu/{idujian}", "kartuC@kirimurutan")->name("kirim.urutan");
         Route::delete("kartu/{idujian}", "kartuC@hapusurutan")->name("hapus.urutan");
         Route::get("kartu/{idujian}/cetak", "kartuC@cetak")->name("cetak");
+        Route::get("cetak/{idujian}/absen", "kartuC@cetakabsen")->name("cetak.absen");
+        Route::get("cetak/{idujian}/denah", "kartuC@cetakdenah")->name("cetak.denah");
 
         //
         Route::resource("soal", "soalC");

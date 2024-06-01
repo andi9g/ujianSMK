@@ -32,7 +32,7 @@ class Ujian extends Migration
             $table->string('password');
             $table->timestamps();
         });
-        
+
         Schema::create('urutan', function (Blueprint $table) {
             $table->bigIncrements('idurutan');
             $table->char("nisn", 10);
@@ -47,7 +47,7 @@ class Ujian extends Migration
             $table->timestamps();
         });
 
-        for ($i=1; $i < 10; $i++) { 
+        for ($i=1; $i < 10; $i++) {
             DB::table('ruangan')->insert([
                 "namaruangan" => $i,
             ]);

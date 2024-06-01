@@ -42,10 +42,98 @@
         </div>
     </div>
 </div>
+<div id="cetakabsen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cetak-laporan-kartu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cetak-laporan-kartu">Cetak Absen</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('cetak.absen', [$idujian]) }}" method="get" target="_blank">
+                <div class="modal-body">
+                    <input type="text" name="idujian" value="{{ $idujian }}" hidden id="">
+                    <input type="text" name="kelas" value="{{ $kelas }}" hidden id="">
+                    <div class='form-group'>
+                        <label for='foridruangan' class='text-capitalize'>Ruangan</label>
+                        <select name='idruangan' id='foridruangan' class='form-control'>
+                            @foreach ($dataruangan as $dr)
+                                <option value="{{ $dr->idruangan }}">{{ $dr->namaruangan }}</option>
+                            @endforeach
+                        <select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary px-3">
+                        <i class="fa fa-print"></i> Cetak
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="cetakdenah" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cetak-laporan-kartu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cetak-laporan-kartu">Cetak Denah Kelas</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('cetak.denah', [$idujian]) }}" method="get" target="_blank">
+                <div class="modal-body">
+                    <input type="text" name="idujian" value="{{ $idujian }}" hidden id="">
+                    <input type="text" name="kelas" value="{{ $kelas }}" hidden id="">
+                    <div class='form-group'>
+                        <label for='foridruangan' class='text-capitalize'>Ruangan</label>
+                        <select name='idruangan' id='foridruangan' class='form-control'>
+                            @foreach ($dataruangan as $dr)
+                                <option value="{{ $dr->idruangan }}">{{ $dr->namaruangan }}</option>
+                            @endforeach
+                        <select>
+                    </div>
+                    <div class='form-group'>
+                        <label for='forbaris' class='text-capitalize'>Jumlah Baris</label>
+                        <select name='baris' id='forbaris' class='form-control'>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                        <select>
+                    </div>
+                    <div class='form-group'>
+                        <label for='forpengawas' class='text-capitalize'>Jumlah Pengawas</label>
+                        <select name='pengawas' id='forpengawas' class='form-control'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                        <select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary px-3">
+                        <i class="fa fa-print"></i> Cetak
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-4">
         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#cetak">
-            <i class="fa fa-print">Cetak Kartu</i>
+            <i class="fa fa-print"></i> Cetak Kartu
+        </button>
+        <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#cetakabsen">
+            <i class="fa fa-print"></i> Cetak Absensi
+        </button>
+
+        <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#cetakdenah">
+            CETAK DENAH
+
         </button>
 
 

@@ -8,7 +8,7 @@ use App\Models\jurusanM;
 use App\Models\urutanM;
 use App\Models\ruanganM;
 use App\Models\kelasM;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
 
 class kartuC extends Controller
@@ -35,7 +35,7 @@ class kartuC extends Controller
         }catch(\Throwable $th){
             return redirect()->back()->with('toast_error', 'Terjadi kesalahan');
         }
-        
+
     }
     public function ubahujian(Request $request, $idujian)
     {
@@ -52,7 +52,7 @@ class kartuC extends Controller
     {
         ujianM::destroy($idujian);
         return redirect()->back()->with('success', 'Success');
-        
+
     }
 
     public function index(Request $request, $idujian)
@@ -87,7 +87,7 @@ class kartuC extends Controller
         ]);
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -113,7 +113,7 @@ class kartuC extends Controller
             }
 
             $cek = urutanM::where("idujian", $idujian)->where("nisn", $nisn);
-    
+
             if($cek->count() == 0) {
                 $tambah = new urutanM;
                 $tambah->nisn = $nisn;
@@ -131,10 +131,10 @@ class kartuC extends Controller
                 "success" => "success",
                 "message" => "Data berhasil di update",
             ];
-    
+
             return $pesan;
 
-        
+
         }catch(\Throwable $th){
             $pesan = [
                 "success" => "error",
@@ -143,7 +143,7 @@ class kartuC extends Controller
             return $pesan;
         }
 
-        
+
 
     }
 
@@ -159,7 +159,7 @@ class kartuC extends Controller
 
 
             $cek = urutanM::where("idujian", $idujian)->where("nisn", $nisn);
-    
+
             if($cek->count() == 0) {
             }else {
                 $cek->first()->delete();
@@ -168,10 +168,10 @@ class kartuC extends Controller
                 "success" => "success",
                 "message" => "Data berhasil di update",
             ];
-    
+
             return $pesan;
 
-        
+
         }catch(\Throwable $th){
             $pesan = [
                 "success" => "error",
@@ -180,15 +180,15 @@ class kartuC extends Controller
             return $pesan;
         }
 
-        
+
 
     }
 
     public function cetak(Request $request, $idujian)
     {
-        
+
         $idruangan = empty($request->idruangan)?'':$request->idruangan;
-        
+
 
 
         $data = urutanM::where("idruangan", "$idruangan%")
@@ -217,9 +217,61 @@ class kartuC extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function cetakabsen(Request $request, $idujian)
     {
-        //
+        $idruangan = empty($request->idruangan)?'':$request->idruangan;
+
+
+        $data = urutanM::where("idruangan", "$idruangan%")
+        ->where("idujian", $idujian)
+        ->orderBy("nomorurut", 'asc')
+        ->get();
+
+
+        // $siswa = siswaM::where("idkelas", "like", "$kelas%")
+        // ->where("nama", "like", "%$keyword%")
+        // ->orderBy("idkelas", "ASC")
+        // ->orderBy("nama", "ASC")
+        // ->get();
+
+        $pdf = PDF::LoadView("pages.kartu.cetak.absen", [
+            "idruangan" => $idruangan,
+            "idujian" => $idujian,
+            "data" => $data,
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf->stream("kartu.pdf");
+    }
+
+    public function cetakdenah(Request $request, $idujian)
+    {
+
+        $idruangan = empty($request->idruangan)?'':$request->idruangan;
+
+        $baris = empty($request->baris)?4:$request->baris;
+        $pengawas = empty($request->pengawas)?1:$request->pengawas;
+
+        $data = urutanM::where("idruangan", "$idruangan%")
+        ->where("idujian", $idujian)
+        ->orderBy("nomorurut", 'asc')
+        ->get();
+
+
+        // $siswa = siswaM::where("idkelas", "like", "$kelas%")
+        // ->where("nama", "like", "%$keyword%")
+        // ->orderBy("idkelas", "ASC")
+        // ->orderBy("nama", "ASC")
+        // ->get();
+
+        $pdf = PDF::LoadView("pages.kartu.cetak.denah", [
+            "idruangan" => $idruangan,
+            "idujian" => $idujian,
+            "data" => $data,
+            "baris" => $baris,
+            "pengawas" => $pengawas,
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf->stream("kartu.pdf");
     }
 
     /**
