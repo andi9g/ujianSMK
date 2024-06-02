@@ -10,14 +10,18 @@ class siswaM extends Model
     use HasFactory;
     protected $table = 'siswa';
     protected $primaryKey = 'idsiswa';
-    protected $connection = 'mysql3';
+    protected $connection = 'mysql4';
     protected $guarded = [];
-    
+
     public function kelas()
     {
         return $this->hasOne(kelasM::class, 'idkelas','idkelas');
     }
-    
+    public function gambar()
+    {
+        return $this->hasOne(gambarM::class, 'nisn','nisn');
+    }
+
     public function jurusan()
     {
         return $this->hasOne(jurusanM::class, 'idjurusan','idjurusan');

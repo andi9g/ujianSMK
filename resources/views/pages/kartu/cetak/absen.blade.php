@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cetak Absen < {{ $idruangan }} ></title>
+    <title>Cetak Absen {{ $idruangan }} </title>
     <style>
         @page {
             margin-top: 10pt;
