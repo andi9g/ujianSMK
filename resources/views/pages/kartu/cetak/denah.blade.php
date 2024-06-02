@@ -76,7 +76,7 @@
     <tr>
         <td width="30%"></td>
         <td class="centered">
-            <div >
+            <div>
             <h2>RUANG {{ $ruangan->namaruangan }}</h2>
             </div>
         </td>
