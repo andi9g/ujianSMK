@@ -112,7 +112,7 @@
         <td class="centered" width="{{ 100 / $baris }}%">
             <div class="kotaksiswa">
                 <p class="myFont">{{ sprintf("%02s", $loop->iteration) }}</p>
-                <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ str_replace(" ", "%20", $item->siswa->gambar) }}" width="30%" alt="">
+                <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ str_replace(" ", "%20", $item->siswa->gambar->gambar) }}" width="30%" alt="">
                 <br>
                 <b>
                     {{ strtoupper($item->siswa->nama) }}
