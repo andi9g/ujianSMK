@@ -77,6 +77,19 @@
         <td width="30%"></td>
         <td class="centered">
             <div class="kotak">
+            <h3>RUANG {{ $ruangan->namaruangan }}</h3>
+            </div>
+        </td>
+        <td width="30%"></td>
+    </tr>
+
+</table>
+
+<table width="100%" >
+    <tr>
+        <td width="30%"></td>
+        <td class="centered">
+            <div class="kotak">
                 PAPAN TULIS
             </div>
         </td>

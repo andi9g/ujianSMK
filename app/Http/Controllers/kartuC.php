@@ -248,6 +248,7 @@ class kartuC extends Controller
 
         $idruangan = empty($request->idruangan)?'':$request->idruangan;
 
+        $ruangan = ruanganM::where("idruangan",$idruangan)->first();
         $baris = empty($request->baris)?4:$request->baris;
         $pengawas = empty($request->pengawas)?1:$request->pengawas;
 
@@ -265,6 +266,7 @@ class kartuC extends Controller
 
         $pdf = PDF::LoadView("pages.kartu.cetak.denah", [
             "idruangan" => $idruangan,
+            "ruangan" => $ruangan,
             "idujian" => $idujian,
             "data" => $data,
             "baris" => $baris,
