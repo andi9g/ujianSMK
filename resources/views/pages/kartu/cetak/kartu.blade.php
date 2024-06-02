@@ -149,9 +149,9 @@
 
         <table width="100%">
             <td width="25%" align="right" valign="justify">
-                @if (empty($item->siswa->gambar))
+                @if (empty($item->siswa->gambar->gambar))
 
-                <img src="{{ url('gambar', ["noimage.png"]) }}" style="max-height: 230px" alt="">
+                <img src="{{ url('gambar', ["noimage.PNG"]) }}" style="max-height: 220px" alt="">
 
                 @else
                 <img src="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{ str_replace(" ", "%20", $item->siswa->gambar->gambar) }}" style="max-height: 220px" alt="">
