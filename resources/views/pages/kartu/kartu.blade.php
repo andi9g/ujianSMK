@@ -247,7 +247,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{empty($item->gambar->gambar)'':$item->gambar->gambar}}" target="_blank" class="badge badge-info badge-btn py-1 border-0">Lihat Gambar</a>
+                        <a href="https://absen.smkn1gunungkijang.sch.id/gambar/siswa/{{empty($item->gambar->gambar)?'':$item->gambar->gambar}}" target="_blank" class="badge badge-info badge-btn py-1 border-0">Lihat Gambar</a>
                     </td>
                 </tr>
             @endforeach
