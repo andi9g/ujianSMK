@@ -207,7 +207,7 @@ class kartuC extends Controller
             "data" => $data,
         ])->setPaper('a4', 'landscape');
 
-        return $pdf->stream("kartu.pdf");
+        return $pdf->stream("Kartu Ujian Ruangan ".$idruangan.".pdf");
 
     }
 
@@ -240,7 +240,7 @@ class kartuC extends Controller
             "data" => $data,
         ])->setPaper('a4', 'portrait');
 
-        return $pdf->stream("kartu.pdf");
+        return $pdf->stream("Absensi Ruangan ".$idruangan.".pdf");
     }
 
     public function cetakdenah(Request $request, $idujian)
@@ -273,7 +273,7 @@ class kartuC extends Controller
             "pengawas" => $pengawas,
         ])->setPaper('a4', 'portrait');
 
-        return $pdf->stream("kartu.pdf");
+        return $pdf->stream("Cetak Denah Ruangan ".$idruangan.".pdf");
     }
 
     /**
