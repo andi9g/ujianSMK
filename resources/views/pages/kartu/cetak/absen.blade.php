@@ -81,7 +81,7 @@
     </div>
     <div class="mb2">
         RUANGAN {{ sprintf("%02s", $data->first()->ruangan->namaruangan) }}
-        <table>
+        <table style="font-size: 11pt">
             <tr>
                 <td>Hari</td>
                 <td>:</td>
@@ -148,6 +148,8 @@
     </table>
 
     <br>
+    <br>
+    <br>
     <table width="100%">
         <tr>
             @for ($i=1; $i <= $pengawas; $i++)
@@ -159,8 +161,8 @@
                 @else
                     <td width="{{ 100/$pengawas }}%" align="center">
                         Pengawas {{ $i }}
-                        <br><br><br><br>
-                        _________________________
+                        <br><br><br><br><br><br>
+                        _____________________
                     </td>
 
                 @endif
