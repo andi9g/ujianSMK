@@ -81,6 +81,18 @@
     </div>
     <div class="mb2">
         RUANGAN {{ sprintf("%02s", $data->first()->ruangan->namaruangan) }}
+        <table>
+            <tr>
+                <td>Hari</td>
+                <td>:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tanggal &nbsp;&nbsp;</td>
+                <td>:</td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
     <table width="100%" border="1">
@@ -133,6 +145,30 @@
 
         @endforeach
 
+    </table>
+
+    <br>
+    <table width="100%">
+        <tr>
+            @for ($i=1; $i <= $pengawas; $i++)
+                @if ($pengawas == 1)
+                    <td width="100%" align="left">
+
+                    </td>
+
+                @else
+                    <td width="{{ 100/$pengawas }}%" align="center">
+                        Pengawas {{ $i }}
+                        <br><br><br><br>
+                        _________________________
+                    </td>
+
+                @endif
+
+
+
+            @endfor
+        </tr>
     </table>
 
 </body>

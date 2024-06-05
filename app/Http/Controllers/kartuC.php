@@ -220,6 +220,7 @@ class kartuC extends Controller
     public function cetakabsen(Request $request, $idujian)
     {
         $idruangan = empty($request->idruangan)?'':$request->idruangan;
+        $pengawas = empty($request->pengawas)?1:$request->pengawas;
 
 
         $data = urutanM::where("idruangan", "$idruangan%")
@@ -238,6 +239,7 @@ class kartuC extends Controller
             "idruangan" => $idruangan,
             "idujian" => $idujian,
             "data" => $data,
+            "pengawas" => $pengawas,
         ])->setPaper('a4', 'portrait');
 
         return $pdf->stream("Absensi Ruangan ".$idruangan.".pdf");

@@ -31,6 +31,15 @@
                             @endforeach
                         <select>
                     </div>
+                    <div class='form-group'>
+                        <label for='forpengawas' class='text-capitalize'>Jumlah pengawas</label>
+                        <select name='pengawas' id='forpengawas' class='form-control'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        <select>
+                    </div>
 
                 </div>
                 <div class="modal-footer">

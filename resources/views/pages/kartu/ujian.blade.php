@@ -20,7 +20,7 @@
                         <label for='fornamaujian' class='text-capitalize'>Nama Ujian</label>
                         <input type='text' name='namaujian' id='fornamaujian' class='form-control' placeholder='contoh : UJIAN AKHIR SEKOLAH (US)'>
                     </div>
-    
+
                     <div class="form-row">
                         <div class="col-12">
                             <label for="tahunawal">Tahun Awal</label>
@@ -28,11 +28,11 @@
                         <div class="col-5">
                             <div class="form-group">
                                 <select id="tahunawal" class="form-control" name="tahunawal">
-                                    
+
                                     @for ($i=(date("Y") -2);$i < (date("Y") + 1); $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Tambah</button>
@@ -86,10 +86,10 @@
                 </a>
             </div>
         </div>
-            
+
     </div>
     @endforeach
-    
+
 
 </div>
 @endsection
