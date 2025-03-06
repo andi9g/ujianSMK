@@ -274,6 +274,33 @@ class kartuC extends Controller
 
         return $pdf->stream("Absensi Ruangan ".$idruangan.".pdf");
     }
+    public function cetakdaftarpeserta(Request $request, $idujian)
+    {
+        $idruangan = empty($request->idruangan)?'':$request->idruangan;
+        $pengawas = empty($request->pengawas)?1:$request->pengawas;
+
+
+        $data = urutanM::where("idruangan", "$idruangan%")
+        ->where("idujian", $idujian)
+        ->orderBy("nomorurut", 'asc')
+        ->get();
+
+
+        // $siswa = siswaM::where("idkelas", "like", "$kelas%")
+        // ->where("nama", "like", "%$keyword%")
+        // ->orderBy("idkelas", "ASC")
+        // ->orderBy("nama", "ASC")
+        // ->get();
+
+        $pdf = PDF::LoadView("pages.kartu.cetak.daftarpeserta", [
+            "idruangan" => $idruangan,
+            "idujian" => $idujian,
+            "data" => $data,
+            "pengawas" => $pengawas,
+        ])->setPaper('F4', 'portrait');
+
+        return $pdf->stream("Absensi Ruangan ".$idruangan.".pdf");
+    }
 
     public function cetakdenah(Request $request, $idujian)
     {

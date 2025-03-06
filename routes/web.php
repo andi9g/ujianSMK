@@ -42,8 +42,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get("kartu/{idujian}/kartu", "kartuC@cetak")->name("cetak");
         Route::get("kartu/{idujian}/meja", "kartuC@meja")->name("meja");
-        Route::get("cetak/{idujian}/absen", "kartuC@cetakabsen")->name("cetak.absen");
         Route::get("cetak/{idujian}/denah", "kartuC@cetakdenah")->name("cetak.denah");
+        Route::get("cetak/{idujian}/absen", "kartuC@cetakabsen")->name("cetak.absen");
+        Route::get("cetak/{idujian}/daftarpeserta", "kartuC@cetakdaftarpeserta")->name("cetak.daftarpeserta");
 
         //
         Route::resource("soal", "soalC");

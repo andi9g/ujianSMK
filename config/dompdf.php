@@ -169,6 +169,10 @@ return array(
          *
          * @see CPDF_Adapter::PAPER_SIZES for valid sizes ('letter', 'legal', 'A4', etc.)
          */
+        'paper' => [
+            'F4' => [0, 0, 595.276, 935.433], // Ukuran F4 dalam point
+        ],
+
         "default_paper_size" => "a4",
 
          /**
@@ -264,6 +268,8 @@ return array(
          *
          * @var bool
          */
+
+
         "enable_remote" => true,
 
         /**
