@@ -130,8 +130,6 @@
     </table>
 
     <br>
-    <br>
-    <br>
     <table width="100%">
         <tr>
             <td align="" width="50%"></td>
