@@ -148,7 +148,7 @@
                             <td>
                                 <center>
 
-                                    <h3 style="margin: 0;padding: 0">{{ strtoupper($item->siswa->nama) }}</h3>
+                                    <h2 style="margin: 0;padding: 0">{{ strtoupper($item->siswa->nama) }}</h2>
                                     <br><br>
                                 </center>
                             </td>
@@ -161,7 +161,7 @@
         </table>
 
 
-        <table width="100%" style="margin: 15px auto;margin-top:25px;border-top: 8px double rgb(121, 121, 121);padding:4px 0">
+        <table width="100%" style="margin: 15px auto;margin-top:5px;border-top: 8px double rgb(121, 121, 121);padding:4px 0">
                 <td class="p3" style="padding-top:15px ">
                     <center>
                         TAHUN PELAJARAN {{ $item->ujian->tahunawal }} / {{ $item->ujian->tahunakhir }}
