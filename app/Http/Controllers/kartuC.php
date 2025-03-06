@@ -237,7 +237,7 @@ class kartuC extends Controller
             "ujian" => $ujian,
         ])->setPaper('a4');
 
-        return $pdf->stream("Kartu Ujian Ruangan ".$idruangan.".pdf");
+        return $pdf->stream("Meja Ujian Ruangan ".$idruangan.".pdf");
 
     }
 
