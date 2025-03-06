@@ -139,7 +139,7 @@
                         <tr>
                             <td>
                                 <center>
-                                    <br><br><br>
+                                    <br><br>
                                     <h1 style="margin: 0;padding: 0">{{ $item->nomorurut }}</h1>
                                 </center>
                             </td>
@@ -149,7 +149,7 @@
                                 <center>
 
                                     <h2 style="margin: 0;padding: 0">{{ strtoupper($item->siswa->nama) }}</h2>
-                                    <br><br>
+                                    <br><br><br>
                                 </center>
                             </td>
                         </tr>
