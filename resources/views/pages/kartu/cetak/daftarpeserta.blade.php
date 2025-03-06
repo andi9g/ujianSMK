@@ -139,7 +139,7 @@
     <table width="100%">
         <tr valign="top">
             <td align="center" width="50%">
-                <p>Mengetahui</p>
+                <p>Ketua Pelaksana</p>
                 <p>Kepala SMKN 1 Gunung Kijang</p>
                     <br><br><br><br>
                 <p >
