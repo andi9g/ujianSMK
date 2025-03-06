@@ -299,7 +299,7 @@ class kartuC extends Controller
             "pengawas" => $pengawas,
         ])->setPaper('F4', 'portrait');
 
-        return $pdf->stream("Absensi Ruangan ".$idruangan.".pdf");
+        return $pdf->stream("Daftar Peserta Ruangan ".$idruangan.".pdf");
     }
 
     public function cetakdenah(Request $request, $idujian)
