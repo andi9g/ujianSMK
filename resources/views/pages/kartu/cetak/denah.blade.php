@@ -11,7 +11,7 @@
     <style>
         @page {
             margin-left: 65px;
-            margin-top: 100px;
+            margin-top: 50px;
         }
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -146,9 +146,9 @@
 
 <table width="100%" style="margin-top: 30px;">
     <tr>
-        <td class="centered" style="padding-bottom: 80px">
-            <h2>DENAH RUANGAN {{ $romawi[$ruangan->namaruangan] }}</h2>
-            <h2>{{ $ujian->namaujian }} </h2>
+        <td class="centered" style="padding-bottom: 30px">
+            <h3>DENAH RUANGAN {{ $romawi[$ruangan->namaruangan] }}</h3>
+            <h3>{{ $ujian->namaujian }} </h3>
         </td>
     </tr>
 
