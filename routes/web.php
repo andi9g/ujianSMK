@@ -35,10 +35,13 @@ Route::middleware(['auth'])->group(function () {
         Route::put("ubah/ujian/{idujian}", "kartuC@ubahujian")->name("ubah.ujian");
         Route::delete("hapus/ujian/{idujian}", "kartuC@hapusujian")->name("hapus.ujian");
         Route::get("kartu/{idujian}", "kartuC@index")->name("cari");
+
         //kirim AJAX
         Route::post("kartu/{idujian}", "kartuC@kirimurutan")->name("kirim.urutan");
         Route::delete("kartu/{idujian}", "kartuC@hapusurutan")->name("hapus.urutan");
-        Route::get("kartu/{idujian}/cetak", "kartuC@cetak")->name("cetak");
+
+        Route::get("kartu/{idujian}/kartu", "kartuC@cetak")->name("cetak");
+        Route::get("kartu/{idujian}/meja", "kartuC@meja")->name("meja");
         Route::get("cetak/{idujian}/absen", "kartuC@cetakabsen")->name("cetak.absen");
         Route::get("cetak/{idujian}/denah", "kartuC@cetakdenah")->name("cetak.denah");
 

@@ -1,4 +1,6 @@
-
+@php
+    $romawi = ["NONE","I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,19 +70,86 @@
         .myFont {
             font-size: 11pt;
         }
+
+        h3, h2, h1, .pm-0{
+            margin: 0;
+            padding: 0;
+        }
+
+        .pk {
+            font-size: 8pt;
+        }
     </style>
 </head>
 <body>
 
-<table width="100%" >
+    <table width="100%" style="border-bottom: 10px double rgb(41, 41, 41);padding:4px 0">
+        <tr>
+            <td width="15%">
+                <center>
+                    <img src="{{ url('gambar/logo/kepri.png', []) }}" height="350px" alt="">
+                </center>
+            </td>
+            <td>
+                <table width="100%" align="center" >
+                    <tr>
+                        <td class="pm-0">
+                            <center>
+                                <h3>
+                                    PEMERINTAH PROVINSI KEPULAUAN RIAU
+                                </h3>
+
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pm-0">
+                            <center>
+                                <h3>
+                                    DINAS PENDIDIKAN
+
+                                </h3>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pm-0">
+                            <center>
+                                <h2>
+                                    <b>SMKN 1 GUNUNG KIJANG</b>
+                                </h2>
+
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pm-0">
+                            <center>
+                                <small class="pk">Jl. Poros Pulau Pucung – Lome, Km 48 Desa Malang Rapat Kecamatan Gunung Kijang Kode Pos 29153</small>
+                                <small class="pk">Webside:www.smkn1gunungkijang.sch.id &nbsp;|&nbsp; Email : smkn1gukibintan@gmail.com</small>
+
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+            <td width="15%">
+                <center>
+                    <img src="{{ url('gambar/logo/smk.png', []) }}" height="350px" alt="">
+                </center>
+            </td>
+        </tr>
+    </table>
+
+
+
+<table width="100%" style="margin-top: 30px;">
     <tr>
-        <td width="30%"></td>
-        <td class="centered">
-            <div>
-            <h2>RUANG {{ $ruangan->namaruangan }}</h2>
-            </div>
+        <td class="centered" style="padding-bottom: 80px">
+            <h2>DENAH RUANGAN {{ $romawi[$ruangan->namaruangan] }}</h2>
+            <h2>{{ $ujian->namaujian }} </h2>
         </td>
-        <td width="30%"></td>
     </tr>
 
 </table>

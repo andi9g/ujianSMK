@@ -211,6 +211,36 @@ class kartuC extends Controller
 
     }
 
+    public function meja(Request $request, $idujian)
+    {
+
+        $idruangan = empty($request->idruangan)?'':$request->idruangan;
+
+
+
+        $data = urutanM::where("idruangan", "$idruangan%")
+        ->where("idujian", $idujian)
+        ->get();
+
+        $ujian = ujianM::where("idujian", $idujian)->first();
+
+        // $siswa = siswaM::where("idkelas", "like", "$kelas%")
+        // ->where("nama", "like", "%$keyword%")
+        // ->orderBy("idkelas", "ASC")
+        // ->orderBy("nama", "ASC")
+        // ->get();
+
+        $pdf = PDF::LoadView("pages.kartu.cetak.meja", [
+            "idruangan" => $idruangan,
+            "idujian" => $idujian,
+            "data" => $data,
+            "ujian" => $ujian,
+        ])->setPaper('a4');
+
+        return $pdf->stream("Kartu Ujian Ruangan ".$idruangan.".pdf");
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -259,7 +289,7 @@ class kartuC extends Controller
         ->orderBy("nomorurut", 'asc')
         ->get();
 
-
+        $ujian = ujianM::where("idujian", $idujian)->first();
         // $siswa = siswaM::where("idkelas", "like", "$kelas%")
         // ->where("nama", "like", "%$keyword%")
         // ->orderBy("idkelas", "ASC")
@@ -273,6 +303,7 @@ class kartuC extends Controller
             "data" => $data,
             "baris" => $baris,
             "pengawas" => $pengawas,
+            "ujian" => $ujian,
         ])->setPaper('a4', 'portrait');
 
         return $pdf->stream("Cetak Denah Ruangan ".$idruangan.".pdf");

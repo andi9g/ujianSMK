@@ -43,6 +43,43 @@
         </div>
     </div>
 </div>
+
+
+
+<div id="meja" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cetak-laporan-kartu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cetak-laporan-kartu">Cetak Nomor Meja</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('meja', [$idujian]) }}" method="get" target="_blank">
+                <div class="modal-body">
+                    @csrf
+                    <input type="text" name="idujian" value="{{ $idujian }}" hidden id="">
+                    <input type="text" name="kelas" value="{{ $kelas }}" hidden id="">
+                    <div class='form-group'>
+                        <label for='foridruangan' class='text-capitalize'>Ruangan</label>
+                        <select name='idruangan' id='foridruangan' class='form-control'>
+                            @foreach ($dataruangan as $dr)
+                                <option value="{{ $dr->idruangan }}">{{ $dr->namaruangan }}</option>
+                            @endforeach
+                        <select>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary px-3">
+                        <i class="fa fa-print"></i> Cetak
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div id="cetakabsen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cetak-laporan-kartu" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -136,6 +173,9 @@
     <div class="col-md-4">
         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#cetak">
             <i class="fa fa-print"></i> Cetak Kartu
+        </button>
+        <button class="btn btn-info" type="button" data-toggle="modal" data-target="#meja">
+            <i class="fa fa-print"></i> Cetak Meja
         </button>
         <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#cetakabsen">
             <i class="fa fa-print"></i> Cetak Absensi

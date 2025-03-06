@@ -10,7 +10,7 @@ class siswaM extends Model
     use HasFactory;
     protected $table = 'siswa';
     protected $primaryKey = 'idsiswa';
-    protected $connection = 'mysql4';
+    protected $connection = 'mysql3';
     protected $guarded = [];
 
     public function kelas()
