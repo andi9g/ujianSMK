@@ -143,6 +143,11 @@
                         <select>
                     </div>
 
+                    <div class='form-group'>
+                        <label for='fortanggal' class='text-capitalize'>Tanggal</label>
+                        <input type='date' name='tanggal' id='fortanggal' class='form-control' placeholder='masukan namaplaceholder'>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary px-3">

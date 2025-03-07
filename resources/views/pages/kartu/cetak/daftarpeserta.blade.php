@@ -133,7 +133,7 @@
     <table width="100%">
         <tr>
             <td align="" width="50%"></td>
-            <td align="center" width="50%">Gunung Kijang, .......................... {{ date('Y') }}</td>
+            <td align="center" width="50%">Gunung Kijang, {{ \Carbon\Carbon::parse(($tanggal))->isoFormat("DD MMMM Y") }}</td>
         </tr>
     </table>
     <table width="100%">

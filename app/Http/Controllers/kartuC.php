@@ -278,6 +278,7 @@ class kartuC extends Controller
     {
         $idruangan = empty($request->idruangan)?'':$request->idruangan;
         $pengawas = empty($request->pengawas)?1:$request->pengawas;
+        $tanggal = empty($request->tanggal)?1:$request->tanggal;
 
 
         $data = urutanM::where("idruangan", "$idruangan%")
@@ -297,6 +298,7 @@ class kartuC extends Controller
             "idujian" => $idujian,
             "data" => $data,
             "pengawas" => $pengawas,
+            "tanggal" => $tanggal,
         ])->setPaper('F4', 'portrait');
 
         return $pdf->stream("Daftar Peserta Ruangan ".$idruangan.".pdf");
