@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\soalM;
 use App\Models\durasiM;
+use App\Models\urutanM;
 use Illuminate\Http\Request;
 
 class umumC extends Controller
@@ -41,9 +42,32 @@ class umumC extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ujian(Request $request, $idsoal)
     {
-        //
+        $request->validate([
+            'nomorurut'=>'required',
+        ],[
+            "nomorurut.required" => "Nomor Ujian tidak boleh kosong!"
+        ]);
+
+        try{
+            // $idsoal = $idsoal;
+            $soal = soalM::where("idsoal", $idsoal)->first();
+
+            $urutan = urutanM::where("nomorurut", $request->nomorurut)
+            ->where("idujian", $soal->idujian)->count();
+
+
+            if ($urutan == 0) {
+                return redirect()->back()->with('error', 'Maaf nomor ujian tidak terdaftar');
+            }
+
+            $links = $soal->links;
+            return redirect()->away($links);
+
+        }catch(\Throwable $th){
+            return redirect()->back()->with('error', 'Terjadi kesalahan');
+        }
     }
 
     /**

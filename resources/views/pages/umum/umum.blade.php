@@ -102,9 +102,7 @@
 
                 </div>
                 <div class="col-6">
-                    <a href="{{ $item->links }}" target="_blank" class="btn btn-block btn-info m-0 rounded-lg btnku">
-                        UJIAN SEKARANG
-                    </a>
+                    <button class="btn btn-block btn-info m-0 rounded-lg btnku" type="button" data-toggle="modal" data-target="#soal{{ $item->idsoal }}">UJIAN SEKARANG</button>
                 </div>
 
 
@@ -133,6 +131,34 @@
 
    @endif
 
+
+   <div id="soal{{ $item->idsoal }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="my-modal-title">FORM VALIDASI UJIAN</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('nomor.urut.ujian', [$item->idsoal]) }}" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class='form-group'>
+                        <label for='fornomorurut' class='text-capitalize'>Nomor Ujian</label>
+                        <input type='text' name='nomorurut' id='fornomorurut' class='form-control' placeholder='Contoh : 9999-999'>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <small>Pastikan password ujian telah di catat atau di Copy sebelum menekan tombol <b>Proses</b></small>
+                    </div>
+                </div>
+                <div class="modal-footer text-right">
+                    <button type="submit" class="btn btn-success">PROSES</button>
+                </div>
+            </form>
+        </div>
+    </div>
+   </div>
 
 @endforeach
 

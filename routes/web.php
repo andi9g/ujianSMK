@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("login", "Auth\LoginController@showLoginForm");
 Route::post("login", "Auth\LoginController@login")->name("login");
 Route::get('/', "umumC@index");
+Route::post('/ujian/{idsoal}', "umumC@ujian")->name("nomor.urut.ujian");
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index');
