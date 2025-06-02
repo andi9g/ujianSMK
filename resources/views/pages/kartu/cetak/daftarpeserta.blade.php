@@ -130,7 +130,7 @@
     <table width="100%">
         <tr>
             <td align="" width="50%"></td>
-            <td align="center" width="50%">Gunung Kijang, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ \Carbon\Carbon::parse(($tanggal))->isoFormat("MMMM Y") }}</td>
+            <td align="center" width="50%">Gunung Kijang, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ \Carbon\Carbon::parse(($tanggal))->isoFormat("MMMM Y") }}</td>
         </tr>
     </table>
     <table width="100%">
