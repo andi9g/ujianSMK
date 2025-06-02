@@ -93,7 +93,7 @@
             <th >Nama</th>
             <th width="10px">L/P</th>
             <th colspan="{{ $strlen }}">Nomor Peserta</th>
-            <th width="250px">Ket</th>
+
         </tr>
 
 
@@ -120,9 +120,6 @@
                 @endif" >{{ $s }}</td>
 
                 @endforeach
-                <td valign="top">
-
-                </td>
             </tr>
 
         @endforeach
@@ -133,7 +130,7 @@
     <table width="100%">
         <tr>
             <td align="" width="50%"></td>
-            <td align="center" width="50%">Gunung Kijang, {{ \Carbon\Carbon::parse(($tanggal))->isoFormat("DD MMMM Y") }}</td>
+            <td align="center" width="50%">Gunung Kijang, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ \Carbon\Carbon::parse(($tanggal))->isoFormat("MMMM Y") }}</td>
         </tr>
     </table>
     <table width="100%">
