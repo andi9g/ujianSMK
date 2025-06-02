@@ -83,7 +83,7 @@
 </head>
 <body>
 
-    <table width="100%" style="border-bottom: 10px double rgb(41, 41, 41);padding:4px 0">
+    {{-- <table width="100%" style="border-bottom: 10px double rgb(41, 41, 41);padding:4px 0">
         <tr>
             <td width="15%">
                 <center>
@@ -140,15 +140,15 @@
                 </center>
             </td>
         </tr>
-    </table>
+    </table> --}}
 
 
 
 <table width="100%" style="margin-top: 30px;">
     <tr>
         <td class="centered" style="padding-bottom: 30px">
-            <h3>DENAH RUANGAN {{ $romawi[$ruangan->namaruangan] }}</h3>
-            <h3>{{ $ujian->namaujian }} </h3>
+            <h3>RUANGAN {{ $ruangan->namaruangan }}</h3>
+            {{-- <h3>{{ $ujian->namaujian }} </h3> --}}
         </td>
     </tr>
 
