@@ -141,11 +141,12 @@
                     <br><br><br><br>
                 <p >
                     <u>
-                        <font style="text-transform: uppercase">Mustafa Kamal</font>, M.Pd
+                        <font style="text-transform: uppercase">DERITAWATI. </font>, S.Kom., M.Pd
                     </u>
                 </p>
-                <p>NIP. 19800909 201001 1 018</p>
-                <img src="{{ url('gambar/ttd_pak_kamal.png', []) }}" height="250px" style="margin-top:-280px" alt="">
+                <p>Penata Tingkat 1 (IIId)</p>
+                <p>NIP. 198102022009032005</p>
+                <img src="{{ url('gambar/ttg_bu_ita.png', []) }}" height="300px" style="margin-top:-280px" alt="">
             </td>
             <td align="center" width="50%">
                 <br>
