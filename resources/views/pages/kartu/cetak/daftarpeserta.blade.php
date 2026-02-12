@@ -146,7 +146,7 @@
                 </p>
                 <p>Penata Tingkat 1 (IIId)</p>
                 <p>NIP. 198102022009032005</p>
-                <img src="{{ url('gambar/ttg_bu_ita.png', []) }}" height="400px" style="margin-top:-480px;margin-left:-100px" alt="">
+                <img src="{{ url('gambar/ttg_bu_ita.png', []) }}" height="360px" style="margin-top:-450px;margin-left:-100px" alt="">
             </td>
             <td align="center" width="50%">
                 <br>
